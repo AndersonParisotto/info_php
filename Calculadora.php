@@ -21,4 +21,8 @@ else {
 }
 
 echo ("Resultado de {$value} {$operator} {$value2} = {$result}");
+
+
+
+
 ?>
