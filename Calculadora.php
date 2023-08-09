@@ -24,7 +24,7 @@ $nota1 = 4;
 $prova1 = 6;
 $nota2 = 6;
 $prova2 = 7;
-$nota3 = 6;
+$nota3 = 5;
 $prova3 = 7;
 $resultmedia = 0;
 
@@ -88,11 +88,11 @@ else if ($operator == 'pond')
 {
     $result = ($nota1 * $prova1 + $nota2 * $prova2 + $nota3 * $prova3) / ($prova1 + $prova2 + $prova3) ;
 
-    echo ("A média ponderada é de: {$result} <br>") ;
+    echo ("A sua média ponderada é de: {$result} <br>") ;
 
-    //Acha a media dos pesos das provas, 80% para aprovar
-    $resultmedia = ((($prova1 + $prova2 + $prova3) / 3) * 80) / 100 ;
-  
+    //Media dos pesos das provas, 80% para aprovar
+    $resultmedia = round(((($prova1 + $prova2 + $prova3) / 3) * 80) / 100 ,2);
+    echo ("Média para passar de ano: {$resultmedia} <br>");
     if ($result >= $resultmedia)
     {
         echo ("APROVADO");
