@@ -14,12 +14,13 @@ harm = Média Harmônica
 pond = Média Ponderada
 */
 
+//Calculadora
 $value = 2;
 $operator = 'pond';
 $value2 = 3;
 $result = 0;
 
-//media ponderada
+//Media ponderada
 $nota1 = 4;
 $prova1 = 6;
 $nota2 = 6;
@@ -27,6 +28,7 @@ $prova2 = 7;
 $nota3 = 5;
 $prova3 = 7;
 $resultmedia = 0;
+$denominador = 0;
 
 
 
@@ -48,14 +50,18 @@ else if ($operator == '+')
 else if ($operator == 'arit')
 {
     $result = ($value + $value2) / 2 ;
+
     echo ("Média aritmética entre {$value} e {$value2} é de {$result}") ;
+
     exit ;
 }
 
 else if ($operator == 'harm')
 {
     $result = round(2 / (1/$value + 1/$value2), 2);
+
     echo ("Média harmônica entre {$value} e {$value2} é de {$result}") ;
+
     exit ;
 }
  
@@ -67,14 +73,18 @@ else if ($operator == '^')
 else if ($operator == '%-')
 {
     $result = $value - $value * ($value2 / 100) ;
+
     echo ("{$value} com {$value2}% de desconto é de {$result}") ;
+
     exit ;
 }
 
 else if ($operator == '%+')
 {
     $result = $value + $value * ($value2 / 100) ;
+
     echo ("{$value} com {$value2}% de acrescimo é de {$result}") ;
+
     exit ;
 }
 
@@ -85,14 +95,17 @@ else if ($operator == 'mmc')
 }
 
 else if ($operator == 'pond')
-{
-    $result = ($nota1 * $prova1 + $nota2 * $prova2 + $nota3 * $prova3) / ($prova1 + $prova2 + $prova3) ;
+{   
+    $denominador = ($prova1 + $prova2 + $prova3) ;
+    $result = ($nota1 * $prova1 + $nota2 * $prova2 + $nota3 * $prova3) / $denominador ;
 
     echo ("A sua média ponderada é de: {$result} <br>") ;
 
     //Media dos pesos das provas, 80% para aprovar
-    $resultmedia = round(((($prova1 + $prova2 + $prova3) / 3) * 80) / 100 ,2);
+    $resultmedia = round((($denominador / 3) * 80) / 100 ,2);
+
     echo ("Média para passar de ano: {$resultmedia} <br>");
+
     if ($result >= $resultmedia)
     {
         echo ("APROVADO");
