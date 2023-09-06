@@ -13,6 +13,8 @@ arit = Media Aritmetica
 harm = Média Harmônica
 */
 
+//FINALIZAR "@@" DE ANO BISSEXTO
+
 $value = 2022;
 $value2 = 10;
 $operator = '@@';
