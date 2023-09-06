@@ -5,8 +5,8 @@
     $b = [5, 6, 7];
     $resultado = $a * $b;
     $resultado = [10, 18, 28];
-*/
 
+*/
 $a = [2, 3, 4, 3];
 $b = [5, 6, 7, 3];
 $i = 0;
@@ -18,5 +18,4 @@ while ($i != $count)
    echo "$result[$i]</br>";
    $i++;
 }
-
 
