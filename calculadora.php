@@ -11,18 +11,34 @@
 %+ = Acrescimo
 arit = Media Aritmetica
 harm = Média Harmônica
+@@ = Verificar ano bissexto ($value)
 */
 
-//FINALIZAR "@@" DE ANO BISSEXTO
 
-$value = 2022;
-$value2 = 10;
+
+$value = 2024;
+$value2 = 11;
 $operator = '@@';
 
-$result = calcular($operator, $value, $value2);
-$parImpar = parOuImpar($result, $parImpar);
+if ($operator == '@@')
+{
+    echo "$value \n";
+    
+    $result = anoBissexto($value);
+    
+    exibir($result);
+}
 
-exibir($result, $parImpar);
+else
+{
+    $result = calcular($operator, $value, $value2);
+
+    exibir($result);
+
+   $parImpar = parOuImpar($result);
+   
+   parImpar($parImpar);
+}
 
 function calcular($operator, $value, $value2)
 {
@@ -138,24 +154,26 @@ function parOuImpar($result)
 
 function anoBissexto($value)
 {
-    if ($value % 4 == 0 && $value % 100 == 0 && $value % 400 == 0)
+    if (($value % 4 == 0 && $value % 100 != 0) || ($value % 4 == 0 && $value % 100 == 0 && $value % 400 == 0))
     {
         return "bissexto"; 
     }
+  
     else
     {
         return "não é bissexto";
     }
 }
 
-
-
-
-function exibir($result, $parImpar)
+function exibir($result)
 {
-    echo "Resultado é {$result} e ele é {$parImpar} <br>";
+    echo "Resultado: {$result} ";
 }
 
+function parImpar($parImpar)
+{
+    echo "e ele é {$parImpar}";
+}
 
 
 
@@ -196,5 +214,3 @@ function mediaPonderada()
     //Media dos pesos das provas, 80% para aprovar
     $resultmedia = round((($denominador / 3) * 80) / 100 ,2);
 }
-
-*/
