@@ -22,7 +22,7 @@ $operator = '@@';
 
 if ($operator == '@@')
 {
-    echo "$value \n";
+    echo "$value <br/>";
     
     $result = anoBissexto($value);
     
@@ -156,12 +156,12 @@ function anoBissexto($value)
 {
     if (($value % 4 == 0 && $value % 100 != 0) || ($value % 4 == 0 && $value % 100 == 0 && $value % 400 == 0))
     {
-        return "bissexto"; 
+        return "Bissexto"; 
     }
   
     else
     {
-        return "não é bissexto";
+        return "Não é bissexto";
     }
 }
 
@@ -173,44 +173,4 @@ function exibir($result)
 function parImpar($parImpar)
 {
     echo "e ele é {$parImpar}";
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-Media ponderada
-$nota1 = 4;
-$prova1 = 6;
-$nota2 = 6;
-$prova2 = 7;
-$nota3 = 5;
-$prova3 = 7;
-$resultmedia = 0;
-$denominador = 0;
-
-function mediaPonderada()
-{
-    $denominador = ($prova1 + $prova2 + $prova3) ;
-    
-    $result = ($nota1 * $prova1 + $nota2 * $prova2 + $nota3 * $prova3) / $denominador ;
-    
-    //Media dos pesos das provas, 80% para aprovar
-    $resultmedia = round((($denominador / 3) * 80) / 100 ,2);
 }
