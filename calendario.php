@@ -1,6 +1,6 @@
 <?php
 // Digitar as datas
-$dataStr = "32/12/2000";
+$dataStr = "377/6/2000";
 $data = explode("/", $dataStr);
 $dia = $data[0];
 $mes = $data[1];
@@ -46,19 +46,9 @@ if ($diaCheck == false)
     }
 
     // se for final de ano coloca a data de ano novo
-    else if ($mes == 12)
+    else 
     {
-        $ano++;
-        $bissexto = anoBissexto($ano); 
-        $dia = 1;
-        $mes = 1;
-    }
-    
-    // acima da data maxima do mes, transforma dia em 1 e passa para o proximo mes
-    else
-    {
-        $dia = 1;
-        $mes++;
+        $dia = $mesCheck;
     }
 }
 
