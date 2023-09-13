@@ -16,7 +16,7 @@ harm = Média Harmônica
 
 
 
-$value = 2024;
+$value = 2000;
 $value2 = 11;
 $operator = '@@';
 
