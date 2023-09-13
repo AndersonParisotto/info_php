@@ -11,14 +11,16 @@
 %+ = Acrescimo
 arit = Media Aritmetica
 harm = Média Harmônica
-@@ = Verificar ano bissexto ($value)
+@@ = Verificar ano bissexto de $value
+!! = fatorial de $value
+primo = verifica se o $value é primo
 */
 
 
 
-$value = 2000;
+$value = 5;
 $value2 = 11;
-$operator = '@@';
+$operator = 'primo';
 
 if ($operator == '@@')
 {
@@ -82,10 +84,23 @@ function calcular($operator, $value, $value2)
         return acrescimo($value, $value2);
     }
 
+    else if ($operator == 'primo')
+    {
+        $result = primos($value);
+        return $result;
+    }
+
     else if ($operator == '@@')
     {
         $result = anoBissexto($value);
         return anoBissexto($value);
+    }
+
+    else if ($operator == '!!')
+    {
+        $result = fatorial($value);
+        return $result;
+
     }
 
     else /*if ($operator == '-')*/
@@ -137,6 +152,52 @@ function acrescimo($value, $value2)
 function menos($value, $value2)
 {
     return $value - $value2 ;    
+}
+
+function fatorial($value)
+{
+    $i = $value - 1;
+
+    while ($i != 1)
+    {
+        $value = $value * $i;
+        $i--;
+    }
+
+    return $value;
+
+}
+
+function primos($value)
+{
+    $quant = 0; 
+
+    for($n = 1; $n < $value;$n++)
+ {
+    $resto = $value % 2; 
+    
+    if($resto == 0 )
+    {
+        break;
+    }
+
+    $resto = $value % $n; 
+
+    if($resto != 0 )
+    {
+        $quant++;
+    }
+ }
+
+    if($quant > 0 )
+    {
+        return "É primo";
+    }
+
+    else
+    {
+        return "Não é primo";
+    }
 }
 
 function parOuImpar($result)
