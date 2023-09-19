@@ -1,6 +1,8 @@
 <?php
-// Digitar as datas
-$dataStr = "377/6/2000";
+// digitar as datas
+$dataStr = "30/6/1997";
+
+// separa em dia, mes e ano
 $data = explode("/", $dataStr);
 $dia = $data[0];
 $mes = $data[1];
@@ -14,26 +16,12 @@ $mesCheck = 28;
 if ($bissexto == true && $mes == 2)
 {
     $mesCheck = 29;
-    $bissexto = "é bissexto";
-
-}
-
-// se for bissexto e outro mês apenas diz que é bissexto
-else if ($bissexto == true)
-{
-    $bissexto = "é bissexto";
-}
-
-// informa que não é bissexto
-else
-{
-    $bissexto =="não é bissexto";
 }
 
 // verifica o mes
 $mesCheck = checkMes($mes, $mesCheck);
 
-//verifica o dia
+// verifica o dia
 $diaCheck = checkDia($dia, $mesCheck, $mes, $ano); 
 
 // arruma as datas invalidas
@@ -52,7 +40,7 @@ if ($diaCheck == false)
     }
 }
 
-// Exibição final das informações
+// exibição final das informações
 echo "$dataStr<br/>";
 exibir($diaCheck, $dia, $mes, $ano);
 exibirB($bissexto);
@@ -127,7 +115,7 @@ function exibirB($bissexto)
 {
     if ($bissexto == true)
     {
-        echo " é bissexto";
+        echo " e é bissexto";
     }
 
     else

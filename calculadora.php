@@ -16,12 +16,12 @@ harm = Média Harmônica
 primo = verifica se o $value é primo
 */
 
-
-
+// digitar os valores e os operadores
 $value = 5;
-$value2 = 11;
-$operator = 'primo';
+$value2 = 12;
+$operator = '+';
 
+// verifica o operador para exibições diferenciadas
 if ($operator == '@@')
 {
     echo "$value <br/>";
@@ -31,17 +31,26 @@ if ($operator == '@@')
     exibir($result);
 }
 
+else if ($operator == 'primo')
+{
+    $result = calcular($operator, $value, $value2);
+
+    echo "Verificando o número {$value}<br/>";
+    exibir($result);
+}
+
 else
 {
     $result = calcular($operator, $value, $value2);
 
     exibir($result);
 
-   $parImpar = parOuImpar($result);
+    $parImpar = parOuImpar($result);
    
-   parImpar($parImpar);
+    parImpar($parImpar);
 }
 
+// função principal de calcular
 function calcular($operator, $value, $value2)
 {
     if ($operator == '*') 
@@ -109,6 +118,7 @@ function calcular($operator, $value, $value2)
     }
 }
 
+// funções de cada operador
 function soma($value, $value2)
 {
     return $value + $value2;
@@ -191,15 +201,16 @@ function primos($value)
 
     if($quant > 0 )
     {
-        return "É primo";
+        return " é primo";
     }
 
     else
     {
-        return "Não é primo";
+        return " não é primo";
     }
 }
 
+// verificar se é par ou impar
 function parOuImpar($result)
 {
     if ($result % 2 == 0)
@@ -213,6 +224,7 @@ function parOuImpar($result)
     }
 }
 
+// verifica se é ano bissexto
 function anoBissexto($value)
 {
     if (($value % 4 == 0 && $value % 100 != 0) || ($value % 4 == 0 && $value % 100 == 0 && $value % 400 == 0))
@@ -226,11 +238,13 @@ function anoBissexto($value)
     }
 }
 
+// exibição do resultado padrão
 function exibir($result)
 {
     echo "Resultado: {$result} ";
 }
 
+// função secundária de par ou impar
 function parImpar($parImpar)
 {
     echo "e ele é {$parImpar}";
