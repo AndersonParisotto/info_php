@@ -1,6 +1,6 @@
 <?php
 // digitar as datas
-$dataStr = "30/6/1997";
+$dataStr = "29/02/2001";
 
 // separa em dia, mes e ano
 $data = explode("/", $dataStr);
