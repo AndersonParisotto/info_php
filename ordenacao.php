@@ -58,3 +58,43 @@ while($s != $count)
     echo "{$number2[$s]}<br/>";
     $s++;
 }
+
+
+
+$frutas = ["maçã", "banana", "laranja", "banana", "uva", "maçã", "maçã"];
+
+$count = count($frutas);
+
+$newfrutas = [];
+
+for ($i = 0; $i < $count; $i++) 
+{
+    $frutaAtual = $frutas[$i]; //maca
+    
+    if (!isset($newfrutas[$frutaAtual])) 
+    {
+        $newfrutas[$frutaAtual] = 1;
+    } 
+    else 
+    {
+        $newfrutas[$frutaAtual]++;
+    }
+}
+
+$resultado = [];
+$frutasJaTem = [];
+
+for ($i = 0; $i < $count; $i++) 
+{
+    $frutaAtual = $frutas[$i];
+    
+    if (!in_array($frutaAtual, $frutasJaTem)) 
+    {
+        $resultado[] = $newfrutas[$frutaAtual] . " " . $frutaAtual;
+        
+        $frutasJaTem[] = $frutaAtual;
+    }
+}
+
+echo implode(', ', $resultado);
+
