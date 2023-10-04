@@ -1,5 +1,5 @@
 <?php
-
+/*
 // Encontrar o maior valor em um conjunto de numeros em um array.
 // E exibir esse valor ao final para o usuario
 echo "Primeira atividade:<br/>";
@@ -58,10 +58,16 @@ while($s != $count)
     echo "{$number2[$s]}<br/>";
     $s++;
 }
+*/
 
+//------------------------------------------------frutas----------------------------------------------------//
+//sort = ordem asc e indice segue/ rsort = ordem desce e indice segue / asort = orde ascd indice continua igual /ksort = ordem asc do indice
 
+$frutas = ["maçã", "banana", "laranja", "banana", "uva", "maçã", "maçã", "maçã", "pessego", "pessego"];
 
-$frutas = ["maçã", "banana", "laranja", "banana", "uva", "maçã", "maçã"];
+$tipo = "asc";
+
+$frutas = ordenacao($frutas, $tipo);
 
 $count = count($frutas);
 
@@ -69,18 +75,47 @@ $newfrutas = [];
 
 for ($i = 0; $i < $count; $i++) 
 {
-    $frutaAtual = $frutas[$i]; //maca
+    $frutaAtual = $frutas[$i]; 
     
     if (!isset($newfrutas[$frutaAtual])) 
     {
         $newfrutas[$frutaAtual] = 1;
-    } 
+    }
+
     else 
     {
         $newfrutas[$frutaAtual]++;
     }
 }
 
+// 1 OPÇÃO
+foreach ($newfrutas as $fruta => $quantidade)
+{
+    echo "{$fruta} {$quantidade}, ";
+}
+
+function ordenacao($frutas, $tipo)
+{
+
+    if ($tipo == "desc")
+    {
+        rsort($frutas);
+        return $frutas;
+    }
+    
+    else if ($tipo == "asc")
+    {
+        sort($frutas);
+        return $frutas;
+    }
+}
+
+
+
+
+
+/*
+// 2 OPÇÃO
 $resultado = [];
 $frutasJaTem = [];
 
@@ -97,4 +132,9 @@ for ($i = 0; $i < $count; $i++)
 }
 
 echo implode(', ', $resultado);
+*/
 
+
+// Utilizando o mesmo exercicio anterior, criar uma função que recebe dois parametros (array, string) para ordenar o array de frutas em ordem
+// crescente(ASC) ou decrescente(DESC)
+// Dica: sort, usort, asort, ksort, rsort...
