@@ -88,7 +88,6 @@ for ($i = 0; $i < $count; $i++)
     }
 }
 
-// 1 OPÇÃO
 foreach ($newfrutas as $fruta => $quantidade)
 {
     echo "{$fruta} {$quantidade}, ";
@@ -96,7 +95,6 @@ foreach ($newfrutas as $fruta => $quantidade)
 
 function ordenacao($frutas, $tipo)
 {
-
     if ($tipo == "desc")
     {
         rsort($frutas);
@@ -133,8 +131,3 @@ for ($i = 0; $i < $count; $i++)
 
 echo implode(', ', $resultado);
 */
-
-
-// Utilizando o mesmo exercicio anterior, criar uma função que recebe dois parametros (array, string) para ordenar o array de frutas em ordem
-// crescente(ASC) ou decrescente(DESC)
-// Dica: sort, usort, asort, ksort, rsort...
