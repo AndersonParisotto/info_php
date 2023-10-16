@@ -51,6 +51,8 @@ protected $marca; // eu e quem eu quiser vai ter acesso
 public $marca; // publico
 */
 
+<?php
+
 class Pessoa
 {
     public $nome; //
@@ -70,31 +72,33 @@ class Pessoa
 
     public function fisico($altura, $peso)
     {
-        $pesoIdeal = $peso / ($altura * $altura);
-        return $pesoIdeal;
+        $this->pesoIdeal = $peso / ($altura * $altura);
+        return $this->pesoIdeal;
     }
 
     public function pratiSaudavel($pratiExerc, $fazDieta)
     {
         if ($pratiExerc == "sim" && $fazDieta == "sim")
         {
-            $pratiSaudavel = 1;
+            $this->pratiSaudavel = 1;
         }
 
         else if ($pratiExerc == "sim" && $fazDieta == "nao")
         {
-            $pratiSaudavel = 2;
+            $this->pratiSaudavel = 2;
         }
 
         else if ($pratiExerc == "nao" && $fazDieta == "sim")
         {
-            $pratiSaudavel = 2;
+            $this->pratiSaudavel = 2;
         }
 
         else
         {
-            $pratiSaudavel = 2;
+            $this->pratiSaudavel = 2;
         }
+        
+        return $this->pratiSaudavel;
     }
 
     public function pesoIdeal($pesoIdeal)
@@ -102,89 +106,84 @@ class Pessoa
         if ($pesoIdeal < 18.5)
         {
             //echo "Abaixo do peso ideal";
-            $pesoIdealGeral = 1;
+            $this->pesoIdealGeral = 1;
         }
 
         else if ($pesoIdeal < 24.9)
         {
            // echo "Peso normal";
-           $pesoIdealGeral = 2;
+           $this->pesoIdealGeral = 2;
         }
 
         else if ($pesoIdeal < 29.9)
         {
            // echo "Sobrepeso";
-           $pesoIdealGeral = 3;
+           $this->pesoIdealGeral = 3;
         }
 
         else if ($pesoIdeal < 34.99)
         {
             //echo "Obesidade Grau I";
-            $pesoIdealGeral = 3;
+            $this->pesoIdealGeral = 3;
         }
     
         else if ($pesoIdeal < 39.9)
         {
            // echo "Obesidade Grau II";
-           $pesoIdealGeral = 3;
+           $this->pesoIdealGeral = 3;
         }
 
         else
         {
             //echo "Obesidade Grau III";
-            $pesoIdealGeral = 3;
+            $this->pesoIdealGeral = 3;
         }
+        
+        return $this->pesoIdealGeral;
     }
 
 
     public function saudeGeral($pesoIdealGeral, $pratiSaudavel)
     {
-        if ($pesoIdealGeral == 1 && $pratiSaudavel == 1)
+        if ($this->pesoIdealGeral == 1 && $this->pratiSaudavel == 1)
         {
-            echo "Você está abaixo do peso ideal! Cuidado com dietas não equilibradas e exercicios exagerados!";
+            return "Você está abaixo do peso ideal! Cuidado com dietas não equilibradas e exercicios exagerados!";
         }
 
-        else if ($pesoIdealGeral == 1 && $pratiSaudavel == 2)
+        else if ($this->pesoIdealGeral == 1 && $this->pratiSaudavel == 2)
         {
-            echo "Você está abaixo do peso ideal! Faça uma dieta equilibrada e pratique exercicios sem exagerar!";
+            return "Você está abaixo do peso ideal! Faça uma dieta equilibrada e pratique exercicios sem exagerar!";
         }
 
-        else if ($pesoIdealGeral == 2 && $pratiSaudavel == 1)
+        else if ($this->pesoIdealGeral == 2 && $this->pratiSaudavel == 1)
         {
-            echo "Graças a sua dieta e exercicios você está no peso ideal e saudavel!!";
+            return "Graças a sua dieta e exercicios você está no peso ideal e saudavel!!";
         }
 
-        else if ($pesoIdealGeral == 2 && $pratiSaudavel == 2)
+        else if ($this->pesoIdealGeral == 2 && $this->pratiSaudavel == 2)
         {
-            echo "Seu peso é o ideal! Mas sempre pratique exercicios fisico e faça uma dieta equilibrada!";
+            return "Seu peso é o ideal! Mas sempre pratique exercicios fisico e faça uma dieta equilibrada!";
         }
 
-        else if ($pesoIdealGeral == 3 && $pratiSaudavel == 1)
+        else if ($this->pesoIdealGeral == 3 && $this->pratiSaudavel == 1)
         {
-            echo "Você está acima do peso! Cuidado! Já que segue uma dieta e faz exercicios, consulte um médico!";
+            return "Você está acima do peso! Cuidado! Já que segue uma dieta e faz exercicios, consulte um médico!";
         }
         
         else
         {
-            echo "Você está acima do peso! Cuidado! Tente uma dieta nova ou altere sua atual, junto com exercicios fisicos regulares";
-            echo "$pesoIdealGeral, $pratiSaudavel";
+            return "Você está acima do peso! Cuidado! Tente uma dieta nova ou altere sua atual, junto com exercicios fisicos regulares";
         }
     } 
 }
 
 
-$altura = 1.90;
-$peso = 100;
-
 $pessoa = new Pessoa();
 $pessoa->dados("Anderson", 22);
-$pessoa->pesoIdeal($pesoIdeal);
-$pessoa->pratiSaudavel("sim", "nao");
-$pessoa->saudeGeral($pesoIdealGeral, $pratiSaudavel);
-
-
-
-
+$pesoIdeal = $pessoa->fisico(1.90, 77);
+$pesoIdealGeral = $pessoa->pesoIdeal($pesoIdeal);
+$pratiSaudavel = $pessoa->pratiSaudavel("nao", "nao");
+echo $pessoa->saudeGeral($pesoIdealGeral, $pratiSaudavel);
 
 
 
