@@ -51,19 +51,17 @@ protected $marca; // eu e quem eu quiser vai ter acesso
 public $marca; // publico
 */
 
-<?php
-
 class Pessoa
 {
-    public $nome; //
-    public $altura; //
-    public $peso; //
-    public $idade; //
-    public $pratiExerc; //
-    public $pesoIdeal; //
-    public $fazDieta; //
-    public $pratiSaudavel; //
-    public $pesoIdealGeral; //
+    public $nome;
+    public $altura;
+    public $peso;
+    public $idade;
+    public $pratiExerc;
+    public $pesoIdeal;
+    public $fazDieta; 
+    public $pratiSaudavel;
+    public $pesoIdealGeral;
 
     public function dados($nome, $idade)
     {
@@ -177,30 +175,9 @@ class Pessoa
     } 
 }
 
-
 $pessoa = new Pessoa();
 $pessoa->dados("Anderson", 22);
 $pesoIdeal = $pessoa->fisico(1.90, 77);
 $pesoIdealGeral = $pessoa->pesoIdeal($pesoIdeal);
 $pratiSaudavel = $pessoa->pratiSaudavel("nao", "nao");
 echo $pessoa->saudeGeral($pesoIdealGeral, $pratiSaudavel);
-
-
-
-
-
-
-
-
-
-
-//$nome, $altura, $peso, $idade, $pratiExerc, $pesoIdeal, $fazDieta, $pratiSaudavel, $pesoIdealGeral
-
-
-
-
-
-
-
-
-
