@@ -1,5 +1,5 @@
 <?php
-
+/*
 interface IVeiculo {
     public function dirigir($chave);
 }
@@ -83,7 +83,7 @@ $veiculo = new Veiculo();
 echo $veiculo->locomover($moto);
 
 
-/*<?php
+*/
 
 interface IVeiculo {
     public function dirigir($chave);
@@ -117,15 +117,6 @@ class Carro implements IVeiculo {
     
 }
 
-class Trator implements IVeiculo {
-    public $chave = "chave_normal";
-
-    public function dirigir($chave) {
-        $this->chave = $chave;
-        echo "estou andando... {$this->chave}<br>";
-    }
-}
-
 class Carreta implements IVeiculo {
     public $chave = "chave_canivete";
 
@@ -151,7 +142,7 @@ class Moto implements IVeiculo {
     }
 }
 
-$chave = "xyz";
+$chave = "x";
 
 $carro = new Carro();
 $carro->dirigir($chave);
@@ -165,5 +156,5 @@ $moto = new Moto();
 $moto->dirigir($chave);
 
 $veiculo = new Veiculo();
-$veiculo->locomover($moto);
-echo $veiculo;*/
+$veiculo->locomover(carro);
+

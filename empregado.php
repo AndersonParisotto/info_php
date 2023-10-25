@@ -9,62 +9,61 @@ Implementar a classe folhaDePagamento // veiculo
 
 interface IRemuneravel
 {
-    public function remuneracao($salario);
+    public function remuneracao();
 }
 
 class FolhaDePagamento
 {
-    public IRemuneravel $folhaDePagamento;
+    public IRemuneravel $funcionario;
 
-    public function pagar(IRemuneravel $folhaDePagamento)
+    public function pagar(IRemuneravel $funcionario)
     {
-        $this->folhaDePagamento = $folhaDePagamento;
+        $this->funcionario = $funcionario;
+
+        $this->funcionario->remuneracao();
     }
+
+    public function __toString()
+    {
+        return "Você ganhou R$ {$this->funcionario->salario} de salário.<br>";
+    }
+    
 }
 
 class Estagiario implements IRemuneravel
 {
     public $salario = 500;
 
-    public function remuneracao($salario)
+    public function remuneracao()
     {
         $this->salario *= 2;
-        echo "Você está pagando R$ {$this->salario} para trabalhar.<br>";
     }
 }
 
 class EmpregadoClt implements IRemuneravel
 {
-    public $salario = 300;
+    public $salario = 312.49;
 
-    public function remuneracao($salario)
+    public function remuneracao()
     {
-        $this->salario += 1000;
-        echo "Você recebeu R$ {$this->salario} de salário.<br>";
+        $this->salario *= 5.2;
     }
 }
 
 class Terceirizado implements IRemuneravel
 {
-    public $salario = 100;
+    public $salario = 1000;
 
-    public function remuneracao($salario)
+    public function remuneracao()
     {
         $this->salario *= 5;
-        echo "Você ganhou R$ {$this->salario} de salário.<br>";
     }
 }
 
-
-
 $estagiario = new Estagiario();
-$estagiario->remuneracao($salario);
-
-$empregadoClt = new EmpregadoClt();
-$empregadoClt->remuneracao($salario);
-
 $terceirizado = new Terceirizado();
-$terceirizado->remuneracao($salario);
+$empregadoCLT = new EmpregadoClt();
 
 $folhaDePagamento = new FolhaDePagamento();
-echo $folhaDePagamento->pagar($estagiario);
+$folhaDePagamento->pagar($empregadoCLT);
+echo $folhaDePagamento;
